@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import css from './ContactForm.module.css';
+import { FormLabel, Input, Button } from '@chakra-ui/react';
 
 export const ContactForm = ({ onHandleSubmit }) => {
   const submitForm = e => {
@@ -10,12 +10,14 @@ export const ContactForm = ({ onHandleSubmit }) => {
   };
 
   return (
-    <form className={css.form} onSubmit={submitForm}>
-      <label className={css.label} htmlFor="name">
+    <form onSubmit={submitForm}>
+      <FormLabel mb="0" htmlFor="name">
         Name
-      </label>
-      <input
-        className={css.input}
+      </FormLabel>
+      <Input
+        mb="5"
+        size="sm"
+        boxShadow="base"
         id="name"
         type="text"
         name="name"
@@ -23,11 +25,13 @@ export const ContactForm = ({ onHandleSubmit }) => {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
       />
-      <label className={css.label} htmlFor="tel">
+      <FormLabel mb="0" htmlFor="tel">
         Number
-      </label>
-      <input
-        className={css.input}
+      </FormLabel>
+      <Input
+        size="sm"
+        mb="5"
+        boxShadow="base"
         id="tel"
         type="tel"
         name="number"
@@ -35,9 +39,9 @@ export const ContactForm = ({ onHandleSubmit }) => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       />
-      <button className={css.btn} type="submit">
+      <Button colorScheme="green" boxShadow="base" type="submit">
         Add contact
-      </button>
+      </Button>
     </form>
   );
 };

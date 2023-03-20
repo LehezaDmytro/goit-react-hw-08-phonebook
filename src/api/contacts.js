@@ -1,11 +1,7 @@
-import axios from 'axios';
+import aushInstance from './auth';
 
-const contactsInstance = axios.create({
-  baseURL: 'https://640fa15ce1212d9cc91e96aa.mockapi.io/contacts',
-});
+export const getAllContacts = () => aushInstance.get('/contacts');
 
-export const getAllContacts = () => contactsInstance.get('/');
+export const deleteContact = id => aushInstance.delete(`/contacts/${id}`);
 
-export const deleteContact = id => contactsInstance.delete(`/${id}`);
-
-export const addContact = data => contactsInstance.post('/', data);
+export const addContact = data => aushInstance.post('/contacts', data);
