@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 
+const NoteFoundPage = lazy(() => import('../pages/NoteFound/NoteFoundPage'));
 const SharedLayout = lazy(() => import('./SharedLayout/SharedLayout'));
 const RegisterPage = lazy(() => import('../pages/Register/RegisterPage'));
 const PrevateRoute = lazy(() => import('./PrivateRoute/PrivateRoute'));
@@ -16,13 +17,13 @@ const App = () => {
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route element={<PrevateRoute />}>
-              <Route path="home" element={<HomePage />} />
+              <Route path="/home" element={<HomePage />} />
             </Route>
             <Route element={<PublicRoute />}>
-              <Route path="register" element={<RegisterPage />} />
-              <Route path="login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/login" element={<LoginPage />} />
             </Route>
-            <Route path="*" element={<LoginPage />} />
+            <Route path="*" element={<NoteFoundPage />} />
           </Route>
         </Routes>
       </Suspense>
