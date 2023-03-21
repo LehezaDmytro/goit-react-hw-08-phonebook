@@ -15,7 +15,7 @@ const App = () => {
     <ChakraProvider>
       <Suspense>
         <Routes>
-          <Route path="/" element={<SharedLayout><LoginPage /></SharedLayout>}>
+          <Route path="/" element={<SharedLayout />}>
             <Route element={<PrevateRoute />}>
               <Route path="/home" element={<HomePage />} />
             </Route>
